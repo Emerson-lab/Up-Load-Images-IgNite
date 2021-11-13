@@ -50,7 +50,7 @@ export default function Home(): JSX.Element {
    })
    console.log(data?.pages);
    console.log(formatted);
-   return formatted;
+
   }, [data]);
 
   // TODO RENDER LOADING SCREEN
