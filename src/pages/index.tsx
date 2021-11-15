@@ -55,7 +55,7 @@ export default function Home(): JSX.Element {
 
   // TODO RENDER LOADING SCREEN
 
-  // TODO RENDER ERROR SCREEN
+
 
   return (
     <>
