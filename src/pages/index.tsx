@@ -22,11 +22,11 @@ interface GetImageResponse {
 }
 
 export default function Home(): JSX.Element {
-  async function fetchImage({pageParam = null}): Promise<GetImageResponse> {
-    const {data} = await api('/api/images', {
+  async function fetchImage({ pageParam = null }): Promise<GetImageResponse> {
+    const { data } = await api('/api/images', {
       params: {
-      after: pageParam
-      }
+        after: pageParam,
+      },
     });
     return data;
   }
@@ -38,24 +38,26 @@ export default function Home(): JSX.Element {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery(
-    'images', fetchImage, {
-      getNextPageParam: lastPage => lastPage?.after || null,
-    }
-  );
+  } = useInfiniteQuery('images', fetchImage, {
+    getNextPageParam: lastPage => lastPage?.after || null,
+  });
 
   const formattedData = useMemo(() => {
-   const formatted = data?.pages.flatMap(imageData => {
-     return imageData.data.flat();
-   })
-   console.log(data?.pages);
-   console.log(formatted);
-   return formatted;
+    const formatted = data?.pages.flatMap(imageData => {
+      return imageData.data.flat();
+    });
+    console.log(data?.pages);
+    console.log(formatted);
+    return formatted;
   }, [data]);
 
-  // TODO RENDER LOADING SCREEN
+  if (isLoading && !isError) {
+    return <Loading />;
+  }
 
-  // TODO RENDER ERROR SCREEN
+  if (isLoading && isError) {
+    return <Error />;
+  }
 
   return (
     <>
