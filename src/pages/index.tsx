@@ -18,7 +18,7 @@ interface Image {
 
 interface GetImageResponse {
   after: string;
-  data: Image[];
+
 }
 
 export default function Home(): JSX.Element {
