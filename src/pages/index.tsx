@@ -16,10 +16,7 @@ interface Image {
   id: string;
 }
 
-interface GetImageResponse {
-  after: string;
-  data: Image[];
-}
+
 
 export default function Home(): JSX.Element {
   async function fetchImage({ pageParam = null }): Promise<GetImageResponse> {
