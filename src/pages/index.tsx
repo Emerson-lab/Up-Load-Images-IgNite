@@ -8,13 +8,7 @@ import { api } from '../services/api';
 import { Loading } from '../components/Loading';
 import { Error } from '../components/Error';
 
-interface Image {
-  title: string;
-  description: string;
-  url: string;
-  ts: number;
-  id: string;
-}
+
 
 interface GetImageResponse {
   after: string;
