@@ -51,9 +51,7 @@ export default function Home(): JSX.Element {
     return formatted;
   }, [data]);
 
-  if (isLoading && !isError) {
-    return <Loading />;
-  }
+
 
   if (!isLoading && isError) {
     return <Error />;
