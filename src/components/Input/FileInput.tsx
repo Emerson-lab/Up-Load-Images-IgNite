@@ -111,13 +111,7 @@ const FileInputBase: ForwardRefRenderFunction<
       } catch (err) {
         if (err?.message === 'Cancelled image upload.') return;
 
-        toast({
-          title: 'Falha no envio',
-          description: 'Ocorreu um erro ao realizar o upload da sua imagem.',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
+
       } finally {
         setIsSending(false);
         setProgress(0);
